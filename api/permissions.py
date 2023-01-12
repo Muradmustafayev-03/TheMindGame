@@ -1,6 +1,21 @@
 from rest_framework import permissions
 
 
+def is_owner(request, obj):
+    # Instance must have an attribute named `user`.
+    return obj.user == request.user
+
+
+class IsOwner(permissions.BasePermission):
+    """
+    Object-level permission to only allow owners of an object to access it.
+    Assumes the model instance has a `user` attribute.
+    """
+
+    def has_object_permission(self, request, view, obj):
+        return is_owner(request, obj)
+
+
 class IsOwnerOrReadOnly(permissions.BasePermission):
     """
     Object-level permission to only allow owners of an object to edit it.
@@ -13,8 +28,7 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
         if request.method in permissions.SAFE_METHODS:
             return True
 
-        # Instance must have an attribute named `user`.
-        return obj.user == request.user
+        return is_owner(request, obj)
 
 
 class DefaultPermissions(permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly):
