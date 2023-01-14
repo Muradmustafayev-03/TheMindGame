@@ -40,7 +40,7 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
         return is_owner(request, obj)
 
 
-class ProfilesPermissions(permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly):
+class ProfilePermissions(permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly):
     """
     Allows everyone to see the content.
     Allows authenticated users to create objects.
@@ -48,7 +48,7 @@ class ProfilesPermissions(permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOn
     """
 
 
-class UsersPermissions(permissions.BasePermission):
+class UserPermissions(permissions.BasePermission):
     """
     Allows admin users to see the content.
     Allows everyone to create new objects.
@@ -63,3 +63,10 @@ class UsersPermissions(permissions.BasePermission):
         if is_same_user(request, obj):
             return True
         return request.method in permissions.SAFE_METHODS and is_admin(request)
+
+
+class ReportPermissions(permissions.IsAuthenticated):
+    def has_permission(self, request, view):
+        if is_admin(request):
+            return True
+        return super().has_permission(request, view) and request.method in ['POST', 'OPTIONS']

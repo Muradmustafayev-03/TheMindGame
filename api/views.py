@@ -3,15 +3,15 @@ from rest_framework import viewsets, status
 from rest_framework.response import Response
 from django.contrib.auth.models import User
 from django.contrib.auth import login
-from .models import Profile
-from .permissions import ProfilesPermissions, UsersPermissions
-from .serializers import ProfileSerializer, UserSerializer
+from .models import Profile, Report
+from .permissions import ProfilePermissions, UserPermissions, ReportPermissions
+from .serializers import ProfileSerializer, UserSerializer, ReportSerializer
 
 
 class UserAPIViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (UsersPermissions, )
+    permission_classes = (UserPermissions,)
 
     def create(self, request, *args, **kwargs):
         user = User.objects.create(
@@ -29,7 +29,7 @@ class UserAPIViewSet(viewsets.ModelViewSet):
 class ProfileAPIViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
-    permission_classes = (ProfilesPermissions, )
+    permission_classes = (ProfilePermissions,)
 
     def create(self, request, *args, **kwargs):
         try:
@@ -39,3 +39,9 @@ class ProfileAPIViewSet(viewsets.ModelViewSet):
                 return Response({'error': 'current user already has the profile'})
             else:
                 return Response({'error': e.args})
+
+
+class ReportAPIViewSet(viewsets.ModelViewSet):
+    queryset = Report.objects.all()
+    serializer_class = ReportSerializer
+    permission_classes = (ReportPermissions,)
