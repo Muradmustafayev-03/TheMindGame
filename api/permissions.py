@@ -6,6 +6,15 @@ def is_owner(request, obj):
     return obj.user == request.user
 
 
+def is_same_user(request, user):
+    print(user, request.user)
+    return user == request.user
+
+
+def is_admin(request):
+    return bool(request.user and request.user.is_staff)
+
+
 class IsOwner(permissions.BasePermission):
     """
     Object-level permission to only allow owners of an object to access it.
@@ -19,7 +28,7 @@ class IsOwner(permissions.BasePermission):
 class IsOwnerOrReadOnly(permissions.BasePermission):
     """
     Object-level permission to only allow owners of an object to edit it.
-    Assumes the model instance has a `user` attribute.
+    Safe methods are allowed for any requests.
     """
 
     def has_object_permission(self, request, view, obj):
@@ -31,9 +40,26 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
         return is_owner(request, obj)
 
 
-class DefaultPermissions(permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly):
+class ProfilesPermissions(permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly):
     """
     Allows everyone to see the content.
     Allows authenticated users to create objects.
     Allows owners of an object to edit or delete it.
     """
+
+
+class UsersPermissions(permissions.BasePermission):
+    """
+    Allows admin users to see the content.
+    Allows everyone to create new objects.
+    Allows owners of an object to retrieve,
+    update and destroy this object.
+    """
+
+    def has_permission(self, request, view):
+        return request.method != 'GET' or is_admin(request)
+
+    def has_object_permission(self, request, view, obj):
+        if is_same_user(request, obj):
+            return True
+        return request.method in permissions.SAFE_METHODS and is_admin(request)

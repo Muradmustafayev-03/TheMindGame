@@ -43,7 +43,5 @@ class Report(models.Model):
                                       related_name='reported_user'
                                       )
     reason = models.CharField(max_length=20, choices=REPORT_REASONS, default=REPORT_REASONS[0])
-
     description = models.CharField(max_length=300, blank=True, null=True)
-
     report_datetime = models.DateTimeField(auto_now=True)
