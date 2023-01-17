@@ -28,4 +28,4 @@ def put_smallest(cards: str):
     cards_ls = str_to_ls(cards)
     smallest = min(cards_ls)
     cards_ls.remove(smallest)
-    return {'card': smallest, 'remaining': cards_ls}
+    return {'card': smallest, 'remaining': ls_to_str(cards_ls)}
