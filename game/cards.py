@@ -29,3 +29,20 @@ def put_smallest(cards: str):
     smallest = min(cards_ls)
     cards_ls.remove(smallest)
     return {'card': smallest, 'remaining': ls_to_str(cards_ls)}
+
+
+def throwing_star(players: list[str]):
+    to_return = []
+    for player in players:
+        player_ls = str_to_ls(player)
+        card_min = min(player_ls)
+        player_ls.remove(card_min)
+        to_return.append({'smallest': card_min,
+                          'remaining': ls_to_str(player_ls)})
+
+    to_return.append({'players': [player['remaining'] for player in to_return]})
+    return to_return
+
+
+def not_lost(players: list[str], card: int):
+    return min(str_to_ls(', '.join(players))) == card
