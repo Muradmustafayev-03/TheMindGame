@@ -29,7 +29,7 @@ from .models import Profile, Report
 class ProfileAPIViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
-    permission_classes = (ProfilePermissions,)
+    # permission_classes = (ProfilePermissions,)
 
     def create(self, request, *args, **kwargs):
         try:
@@ -44,4 +44,4 @@ class ProfileAPIViewSet(viewsets.ModelViewSet):
 class ReportAPIViewSet(viewsets.ModelViewSet):
     queryset = Report.objects.all()
     serializer_class = ReportSerializer
-    permission_classes = (ReportPermissions,)
+    # permission_classes = (ReportPermissions,)
