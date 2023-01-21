@@ -8,22 +8,22 @@ from .permissions import ProfilePermissions, UserPermissions, ReportPermissions
 from .serializers import ProfileSerializer, UserSerializer, ReportSerializer
 
 
-class UserAPIViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = (UserPermissions,)
-
-    def create(self, request, *args, **kwargs):
-        user = User.objects.create(
-            username=request.data['username']
-        )
-        user.set_password(request.data['password'])
-        user.save()
-        login(request, user)
-        return Response(
-            {"username": user.username,
-             "password": user.password},
-            status=status.HTTP_201_CREATED)
+# class UserAPIViewSet(viewsets.ModelViewSet):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
+#     permission_classes = (UserPermissions,)
+#
+#     def create(self, request, *args, **kwargs):
+#         user = User.objects.create(
+#             username=request.data['username']
+#         )
+#         user.set_password(request.data['password'])
+#         user.save()
+#         login(request, user)
+#         return Response(
+#             {"username": user.username,
+#              "password": user.password},
+#             status=status.HTTP_201_CREATED)
 
 
 class ProfileAPIViewSet(viewsets.ModelViewSet):
