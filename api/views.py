@@ -1,11 +1,11 @@
-from django.db import IntegrityError
-from rest_framework import viewsets, status
+from .permissions import ProfilePermissions, ReportPermissions  # , UserPermissions
+from .serializers import ProfileSerializer, ReportSerializer  # , UserSerializer
 from rest_framework.response import Response
 from django.contrib.auth.models import User
+from rest_framework import viewsets, status
 from django.contrib.auth import login
+from django.db import IntegrityError
 from .models import Profile, Report
-from .permissions import ProfilePermissions, UserPermissions, ReportPermissions
-from .serializers import ProfileSerializer, UserSerializer, ReportSerializer
 
 
 # class UserAPIViewSet(viewsets.ModelViewSet):

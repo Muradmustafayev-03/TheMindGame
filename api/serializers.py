@@ -4,11 +4,11 @@ from .models import Profile, Report
 from datetime import datetime
 
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['username', 'password', 'is_active', 'is_staff', 'date_joined', 'last_login']
-        read_only_fields = ['is_active', 'is_staff', 'date_joined', 'last_login']
+# class UserSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = User
+#         fields = ['username', 'password', 'is_active', 'is_staff', 'date_joined', 'last_login']
+#         read_only_fields = ['is_active', 'is_staff', 'date_joined', 'last_login']
 
 
 class ProfileSerializer(serializers.ModelSerializer):
