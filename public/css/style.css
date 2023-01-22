@@ -1,0 +1,339 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Lobster&family=Montserrat:wght@200&family=Oswald:wght@300;700&family=Poppins:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Splash&display=swap");
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Oswald", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.body_1{
+    height: 100vh;
+    background-image: url(../img/img_3.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+}
+header{
+    background-color: #211E1E;
+    padding: 10px 0;
+}
+.navbar_nav{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.hmbrgr_icon span{
+    background-color: #FBFF50;
+    display: block;
+    width: 30px;
+    height: 5px;
+    margin-bottom: 5px;
+}
+.icon_img{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.sgn_in_btn{
+    padding: 8px 15px;
+    border-radius: 10px;
+    background-color: #47118B;
+    border: none;
+
+}
+.btn_img{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.btn_img a{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.sgn_in_btn a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+.logo{
+    width: 100px;
+    height: 50px;
+}
+.user_img img, .usr_usr_name img{
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
+.main_1{
+    display: flex;
+    /* height: 100vh; */
+    justify-content: center;
+    align-items: center;
+}
+.main_1_div{
+    display: flex;
+    
+}
+.main_1_div{
+    width: 70%;
+}
+.main_1_div img{
+
+    height: 450px;
+    width: 450px;
+    border-radius: 15px;
+}
+.buttons{
+    margin-left: auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.buttons button{
+    width: 300px;
+    height: 70px;
+    border-radius: 10px;
+    border: none;
+    background-color: #47118B;
+    cursor: pointer;
+}
+.buttons button a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+footer{
+    padding: 25px 0;
+    display: flex;
+    justify-content: center;
+    background-color: #211E1E;
+}
+footer a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+
+}
+.user_profile{
+    transform: translateX(400px);
+    transition: .7s ease;
+    right: 0;
+    top: 0;
+    position: absolute;
+    background-color: #211E1E;
+    height: 100vh;
+    width: 250px;
+    padding: 40px 0;
+    box-sizing: border-box;
+}
+.active{
+    transform: translateX(0); 
+}
+.usr_usr_name{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid white ;
+    padding-bottom: 30px;
+}
+.usr_usr_name p{
+    font-size: 22px;
+    color: white;
+}
+.close_menu{
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    cursor: pointer;
+}
+.close_menu span{
+    width: 20px;
+    height: 5px;
+    display: block;
+    background-color: #FBFF50;
+}
+.close_menu span:first-child{
+    transform: rotate(45deg);
+}
+.close_menu span:last-child{
+    transform: rotate(-45deg);
+    margin-top: -5px;
+}
+.statistics{
+    padding: 5px 30px 30px 30px;
+    border-bottom: 1px solid white;
+}
+.statistics p{
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    padding-bottom: 30px;
+}
+.statistics div{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.statistics span{
+    font-size: 16px;
+    color: white;
+}
+.statistics .score{
+    width: 30px;
+    height: 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #343333;
+    color: #4B758D;
+}
+.logout{
+    padding: 30px;
+}
+.logout_btn{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    color: red;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: #999588;
+}
+.main_2{
+    display: flex;
+    justify-content: center;
+}
+.main_2 form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 0;
+    border-radius: 10px;
+    width: 320px;
+    background-color: #211D1D;
+
+}
+.sign_btns{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #544D4D;
+
+}
+.sign_btns button{
+    background: none;
+    border: none;
+    color: #544D4D;
+    font-size: 18px;
+    cursor: pointer;
+}
+.main_2 form input{
+    width: 80%;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    padding: 0 10px ;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+.check{
+    width: auto !important;
+    height: auto !important;
+}
+.checkbox_div{
+    width: 80%;
+}
+.checkbox_div label{
+    color: white;
+    font-size: 14px;
+}
+.login_btn{
+    width: 150px;
+    height: 30px;
+    background-color: #47118B;
+    border: none;
+    border-radius: 10px;
+}
+.active_btn{
+    color: white !important;
+}
+.none{
+    display: none ;
+}
+.main_3{
+    background-color: #47118B;
+    border-radius: 10px;
+    padding: 20px 0;
+    width: 60%;
+    margin: auto;
+}
+.main_3 h3{
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    border-bottom: 1px solid white;
+}
+.main_3 p{
+    font-size: 14px;
+    color: white;
+    padding: 20px;
+    font-weight: 600;
+}
+.main_3 button{
+    width: 100px;
+    margin: auto;
+    display: block;
+    padding: 8px;
+    background-color: #211D1D;
+    color: white;
+    border: none;
+    border-radius: 17px;
+    font-size: 16px;
+    font-weight: 600;
+
+}
+.body_2{
+    height: 100vh;
+    background-image: url(../img/img-1.png);
+    background-size: 50% 100%;
+    background-repeat: repeat-x;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+}
+.body_3{
+    height: 100vh;
+    background-image: url(../img/img-1.png);
+    background-size: 33.33% 100%;
+    background-repeat: repeat-x;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+}
