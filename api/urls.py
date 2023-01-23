@@ -8,5 +8,5 @@ router.register(r'profiles', ProfileAPIViewSet)
 router.register(r'reports', ReportAPIViewSet)
 
 urlpatterns = [
-    path('api/v1/', include(router.urls)),
+    path('', include(router.urls)),
 ]

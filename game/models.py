@@ -1,20 +1,25 @@
 from django.db import models
 from api.models import Profile
+from .cards import *
 
 
 class Room(models.Model):
-    players_number = models.PositiveIntegerField()
+    name = models.CharField(max_length=100)
+    started = models.BooleanField(default=False)
 
-    current_level = models.PositiveIntegerField()
-    levels = models.PositiveIntegerField()
+    players_number = models.PositiveIntegerField(default=2)
 
-    card_on_table = models.PositiveIntegerField()
-    cards_remain = models.CharField(max_length=300)
+    current_level = models.PositiveIntegerField(default=1)
+    levels = models.PositiveIntegerField(default=10)
 
-    lives = models.PositiveIntegerField()
-    throwing_stars = models.PositiveIntegerField()
+    card_on_table = models.PositiveIntegerField(default=0)
+    cards_remain = models.CharField(max_length=300, default=new_deck())
+
+    lives = models.PositiveIntegerField(default=2)
+    throwing_stars = models.PositiveIntegerField(default=0)
 
 
 class Player(models.Model):
     profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
-    room = models.ForeignKey(Room, on_delete=models.DO_NOTHING)
+    room = models.ForeignKey(Room, on_delete=models.DO_NOTHING, default=None, null=True)
+    cards = models.CharField(max_length=300, default='')

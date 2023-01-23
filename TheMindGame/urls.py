@@ -30,5 +30,6 @@ urlpatterns = [
     path('api/v1/docs/', schema_view),
     path('api/v1/redoc/', include_docs_urls('The Mind Game API')),
 
-    path('', include('api.urls')),
+    path('api/v1/', include('api.urls')),
+    path('game/', include('game.urls')),
 ]

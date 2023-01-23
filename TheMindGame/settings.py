@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     'api',
+    'game',
     'rest_framework',
     'rest_framework_swagger',
     'djoser'
