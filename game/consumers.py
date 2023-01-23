@@ -34,4 +34,9 @@ class GameConsumer(AsyncJsonWebsocketConsumer):
         cards = event['message']
         player = event['player']
         card = put_smallest(cards)
-        await self.send(text_data=json.dumps({'message': card, 'player': player}))
+        await self.send(text_data=json.dumps({'type': 'put_card', 'message': card, 'player': player}))
+
+    async def throwing_star(self, event):
+        message = event['message']
+        player = event['player']
+        await self.send(text_data=json.dumps({'type': 'throwing_star', 'message': message, 'player': player}))
